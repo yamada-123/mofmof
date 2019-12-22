@@ -1,0 +1,42 @@
+<%= form_with(model: @home, local: true) do |form| %>
+  <% if @home.errors.any? %>
+    <div id = "error_explanation">
+      <h2><%= @home.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @home.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div class="home_property">
+    <%= form.label :"物件名" %>   
+    <br>
+    <%= form.text_field :property %>   
+  </div>
+  <div class="home_rent">
+    <%= form.label :"賃料" %>
+    <br>
+    <%= form.text_field :rent %>円
+  </div>
+   <div class="home_address">
+    <%= form.label :"住所" %>
+    <br>
+    <%= form.text_field :address %>
+  </div>
+  <div class="home_age">
+    <%= form.label :"築年数" %>
+    <br>
+    <%= form.text_field :age %>年
+  </div>
+   <div class="home_remarks">
+    <%= form.label :"備考" %>
+    <br>
+    <%= form.text_field :remarks %>
+  </div>
+  <%= form.submit %>
+<% end %>
