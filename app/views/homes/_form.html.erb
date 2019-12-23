@@ -38,5 +38,39 @@
     <br>
     <%= form.text_field :remarks %>
   </div>
+
+  <%= "--------------------------------------------------------------------------------------------------------------------------" %>
+
+
+    <% n = 0 %>
+  <%= form.fields_for :stations do |station_form|%>
+   <h3>最寄り駅<%= n = n+1 %></h3>
+
+  <div class="station_route">
+    <%= station_form.label :"路線名" %>
+    <br>
+    <%= station_form.text_field :route %>
+  </div>
+  
+  <div class="station_near_station">
+    <%= station_form.label :"最寄駅" %>
+    <br>
+    <%= station_form.text_field :near_station %>
+  </div>
+
+  <div class="sation_time">
+    <%= station_form.label :"徒歩分数" %>
+    <br>
+    <%= station_form.text_field :time %>分
+  </div>
+
+  <br>
+  <% end %>
+
+
+
+
   <%= form.submit %>
+  
+  
 <% end %>
