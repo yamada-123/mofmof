@@ -35,7 +35,6 @@ class HomesController < ApplicationController
 
   def update
     if @home.update(home_params)
-      binding.pry
       redirect_to homes_path, notice: "情報を編集しました"
     else
       render :edit

@@ -4,6 +4,11 @@
 <p>築年数: <%= @home.age %></p>
 <p>備考: <%= @home.remarks %></p>
 <%= "---------------------------------------------------------------" %>
+<br>
+  <% if @home.stations.count == 0 %>
+  "最寄り駅が登録されていません"
+  <% else %>
+
 <% n = 0 %>
   <% @home.stations.each do |station| %>
 <h3>最寄り駅<%=n = n+1 %></h3>
@@ -12,6 +17,7 @@
 <p>徒歩分数: <%= station.time %></p>
 <% end %>
 
-
+<% end %>
+<br>
 <%= link_to '編集', edit_home_path %>
 <%= link_to '戻る', homes_path %>
